@@ -90,3 +90,27 @@ if (!function_exists('register_custom_grid_post_widget')) {
 
     add_action('elementor/widgets/register', 'register_custom_grid_post_widget');
 }
+
+function add_elementor_widget_categories($elements_manager) {
+    // Define the new category
+    $new_category = [
+        'title' => 'Vasux-News',
+        'icon' => 'fa fa-plug',
+    ];
+
+    // Get the existing categories
+    $old_categories = $elements_manager->get_categories();
+
+    // Merge the new category at the beginning of the existing categories
+    $categories = ['Vasux-News' => $new_category] + $old_categories;
+
+    // Set the updated categories array
+    $set_categories = function ($categories) {
+        $this->categories = $categories;
+    };
+
+    // Call the set_categories function with the updated categories
+    $set_categories->call($elements_manager, $categories);
+}
+
+add_action('elementor/elements/categories_registered', 'add_elementor_widget_categories');
