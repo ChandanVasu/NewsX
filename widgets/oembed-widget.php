@@ -74,7 +74,7 @@ class Elementor_oEmbed_Widget extends \Elementor\Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return [ 'Vasux-News' ];
+		return [ 'Vasux' ];
 	}
 
 	/**

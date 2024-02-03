@@ -24,7 +24,7 @@ class Custom_Grid_Post_Widget extends \Elementor\Widget_Base
 
     public function get_categories()
     {
-        return ['Vasux-News'];
+        return ['Vasux'];
     }
 
     protected function register_controls()
