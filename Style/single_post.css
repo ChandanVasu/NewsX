@@ -1,13 +1,34 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
+}
+
+.container{
+    width: 1350px;
+}
+
+a:-webkit-any-link {
+    color: blue;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 /* Default styles for larger screens */
 .content-area {
+    width: 55%;
     padding-top: 10px;
-    padding-left: 20px;
+    /* margin-left: 10%;
+    margin-right: 5%; */
+    /* justify-items: start; */
+    float: left;
+}
+
+.sidebar-area {
+    width: 26%;
+    justify-items: start;
+    float: right;
+
 }
 
 .single-post h2,
@@ -24,14 +45,13 @@
 
 .single-post .content-area {
     padding-right: 20px;
-    margin-left: 20px;
+    margin-left: 10%;
     padding-left: 20px;
     padding-top: 10px;
     margin-top: 10px;
     border-radius: 10px;
     background-color: #f3f8f6;
     border: 1px solid #ddd;
-    width: 800px;
     line-height: 1.5;
 }
 
@@ -42,7 +62,7 @@
 }
 
 .single-post h1 {
-    color: #0f54e9;
+    color: #020c20;
     font-size: 24px;
 }
 
@@ -69,8 +89,10 @@
 
 .single-post .author-name,
 .single-post .post-date {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 14px;
-    color: #31c4de;
+    color: #1b055e;
+    font-weight: bold;
 }
 
 .single-post .author-info .author-avatar {
@@ -90,20 +112,206 @@
     margin-left: 5px;
 }
 
-/* Media query for smaller screens */
-@media only screen and (max-width: 600px) {
-    .single-post .content-area {
+/* Style for the post grid container */
+.post-grid {
+    margin-right: 10%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+/* Style for each post grid item */
+.post-grid-item {
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.post-grid-item:hover {
+    transform: scale(1.05);
+}
+
+/* Style for post thumbnails */
+.post-thumbnail img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.post-thumbnail a{
+    text-decoration: none;
+}
+
+/* Style for post titles */
+.post-grid-item h2 {
+    color: #000;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* Style for post excerpts */
+.post-content {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Apply styles only for screens with a maximum width of 768 pixels */
+@media (max-width: 768px) {
+    .content-area,
+    .sidebar-area {
         width: 100%;
-        padding: 10px;
-        margin: 0;
+        float: none;
+        margin: 10;
+    }
+
+    .single-post .content-area {
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-left: 0px;
+
     }
 
     .single-post .custom-thumbnail-class {
+        height: 200px;
         width: 100%;
+        border-radius: 10px;
     }
 
     .single-post img {
         width: 100%;
-        height: auto;
+        height: 200px;
+        border-radius: 10px;
+    }
+
+    .post-grid {
+        grid-template-columns: 1fr;
     }
 }
+
+
+
+
+
+
+
+
+
+/* Comment Box Styling */
+/* Comment Box Styling */
+.commentbox-area {
+    height: fit-content;
+    width: 50%;
+    overflow-y: auto;
+    overflow-x: auto;
+    margin-top: 30px;
+   
+    margin-left: 13%;
+    margin-right: 20%;
+}
+
+.commentbox-area .comment{
+    margin-top: 10px
+}
+
+#comments{
+    display: none;
+}
+
+.commentbox-area .comment-respond {
+    height: fit-content;
+    overflow-y: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f3f8f6;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.commentbox-area .comment-respond h3 {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.commentbox-area .comment-form p {
+    margin: 10px 0;
+}
+
+.commentbox-area .comment-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.commentbox-area .comment-form input[type="text"],
+.commentbox-area .comment-form input[type="email"],
+.commentbox-area .comment-form input[type="url"],
+.commentbox-area .comment-form textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.commentbox-area .comment-form input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.commentbox-area .comment-notes {
+    margin-bottom: 15px;
+}
+
+.commentbox-area .comment-form input[type="submit"] {
+    background-color: #0073e5;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.commentbox-area .comment-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.commentbox-area .comment-list {
+    list-style: none;
+    margin: 0;
+    height: 100px;
+    padding: 0;
+}
+
+.commentbox-area .comment {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.commentbox-area .vcard img {
+    height: 30px;
+    width: 30px;
+}
+
+.commentbox-area .comment-metadata {
+    font-size: 14px;
+    color: #888;
+}
+
+.commentbox-area .comment-content {
+    margin-top: 10px;
+}
+
+.commentbox-area .comment-reply-link {
+    color: #0073e5;
+}
+
+.commentbox-area .comment-reply-link:hover {
+    color: #0056b3;
+}
+

@@ -11,6 +11,10 @@
     border-radius: 10px;
 }
 
+.grid-item:hover {
+    transform: scale(1.05);
+}
+
 .Grid-Post-Style1 .post-thumbnail {
     position: relative;
     overflow: hidden;
