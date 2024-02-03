@@ -32,14 +32,19 @@ function enqueue_styles_and_scripts()
 
 function enqueue_custom_styles()
 {
-    wp_enqueue_style('custom-styles', get_template_directory_uri() . '/Style/Gridpost.css');
-
+    wp_enqueue_style('custom-styles-gridpost', get_template_directory_uri() . '/Style/Gridpost.css');
 }
 
-
+function enqueue_custom_styles_comment()
+{
+    wp_enqueue_style('custom-styles-comment', get_template_directory_uri() . '/Style/comment_box.css');
+}
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
+add_action('wp_enqueue_scripts', 'enqueue_custom_styles_comment');
 add_action('wp_enqueue_scripts', 'enqueue_styles_and_scripts');
+
+
 
 // Custom Excerpt Length
 function custom_excerpt_length($length)

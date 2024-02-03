@@ -69,23 +69,31 @@
                     the_content();
 
                     // Allow comments
-                    
+
 
                 endwhile; // End of the loop.
-                ?>
+?>
 
             </main><!-- #main -->
         </div><!-- #primary -->
 
         <!-- Sidebar Area -->
         <div class='sidebar-area'>
-            <?php get_sidebar('Main Sidebars'); ?>
+            <?php get_sidebar('Post_Grid'); ?>
         </div>
         <div class='commentbox-area'> <?php if (comments_open() || get_comments_number()) :
-                        comments_template('comment');
-                    endif; ?> </div> 
+            comments_template('comment');
+
+
+        endif; ?> </div> 
+
+                   
 
     </div><!-- .container -->
+
+    <div>
+    <?php get_template_part('Tamplate/grid_post'); ?>
+                    </div>
 
 </body>
 </html>

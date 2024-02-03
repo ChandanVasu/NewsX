@@ -1,12 +1,17 @@
 * {
     margin: 0;
     padding: 0;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
 }
 
-.container{
-    width: 1350px;
+.container {
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+    justify-content: start;
 }
+
+
 
 a:-webkit-any-link {
     color: blue;
@@ -14,64 +19,135 @@ a:-webkit-any-link {
     text-decoration: none;
 }
 
-/* Default styles for larger screens */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .content-area {
-    width: 55%;
-    padding-top: 10px;
-    /* margin-left: 10%;
-    margin-right: 5%; */
-    /* justify-items: start; */
+    width: 70%;
+    padding: 15px;
+    box-sizing: border-box;
     float: left;
+    margin-top: 20px;
 }
 
 .sidebar-area {
-    width: 26%;
-    justify-items: start;
+    width: 25%; /* Adjust the width as needed */
+    padding: 15px;
+    box-sizing: border-box;
     float: right;
-
 }
 
-.single-post h2,
-.single-post h3,
-.single-post h4 {
-    margin-top: 5px;
-    margin-bottom: 5px;
+.content-area .site-main{
+margin: 10px;
+padding: 5px;
 }
 
-.single-post p {
-    margin-top: 10px;
-    margin-bottom: 10px;
+.content-area h1{
+    font-size: 18px;
 }
 
 .single-post .content-area {
-    padding-right: 20px;
-    margin-left: 10%;
-    padding-left: 20px;
-    padding-top: 10px;
-    margin-top: 10px;
+    padding: 15px;
     border-radius: 10px;
     background-color: #f3f8f6;
     border: 1px solid #ddd;
     line-height: 1.5;
 }
 
-.single-post .custom-thumbnail-class {
-    height: 400px;
-    width: 100%;
-    border-radius: 10px;
-}
-
-.single-post h1 {
-    color: #020c20;
-    font-size: 24px;
-}
-
+.single-post .custom-thumbnail-class,
 .single-post img {
     width: 100%;
-    height: 400px;
+    height: auto;
     border-radius: 10px;
 }
 
+.post-grid {
+    margin: 0;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+.post-grid-item {
+    margin: 15px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Apply styles only for screens with a maximum width of 768 pixels */
+@media (max-width: 768px) {
+    .single-post .custom-thumbnail-class,
+    .single-post img {
+        height: auto;
+    }
+
+    .content-area .site-main{
+        margin: 0px;
+        padding: 0px;
+        }
+    .post-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-area,
+    .sidebar-area {
+        width: 100%;
+        float: none;
+        margin: 0;
+    }
+
+    .sidebar-area{
+        display: none;
+    }
+}
+
+/* Style for the post grid container */
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+/* Style for each post grid item */
+.post-grid-item {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+.post-grid-item:hover {
+    transform: scale(1.05);
+}
+
+/* Style for post thumbnails */
+.post-thumbnail img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0; /* Rounded corners only at the top */
+}
+
+/* Style for post titles */
+.post-grid-item h2 {
+    color: #000;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* Style for post excerpts */
+.post-content {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Style for post meta data */
 .single-post .author-info {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -112,9 +188,36 @@ a:-webkit-any-link {
     margin-left: 5px;
 }
 
+
+@media (max-width: 768px){
+    .single-post .author-name,
+.single-post .post-date {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 10px;
+    color: #1b055e;
+    font-weight: bold;
+}
+
+.single-post .social-media-links img {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
 /* Style for the post grid container */
-.post-grid {
-    margin-right: 10%;
+.post-grids {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 20px;
@@ -122,15 +225,15 @@ a:-webkit-any-link {
 
 /* Style for each post grid item */
 .post-grid-item {
-    margin: 10px;
     border-radius: 10px;
     border: 1px solid #ddd;
-    padding: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
 }
 
-.post-grid-item:hover {
+
+
+.post-grids-item:hover {
     transform: scale(1.05);
 }
 
@@ -138,11 +241,7 @@ a:-webkit-any-link {
 .post-thumbnail img {
     width: 100%;
     height: auto;
-    border-radius: 5px;
-}
-
-.post-thumbnail a{
-    text-decoration: none;
+    border-radius: 10px 10px 0 0; /* Rounded corners only at the top */
 }
 
 /* Style for post titles */
@@ -159,159 +258,7 @@ a:-webkit-any-link {
     color: #555;
 }
 
-/* Apply styles only for screens with a maximum width of 768 pixels */
-@media (max-width: 768px) {
-    .content-area,
-    .sidebar-area {
-        width: 100%;
-        float: none;
-        margin: 10;
-    }
-
-    .single-post .content-area {
-        padding-right: 10px;
-        padding-left: 10px;
-        margin-left: 0px;
-
-    }
-
-    .single-post .custom-thumbnail-class {
-        height: 200px;
-        width: 100%;
-        border-radius: 10px;
-    }
-
-    .single-post img {
-        width: 100%;
-        height: 200px;
-        border-radius: 10px;
-    }
-
-    .post-grid {
-        grid-template-columns: 1fr;
-    }
+.simple-post{
+    margin-left: 80px;
+    margin-right: 80px;
 }
-
-
-
-
-
-
-
-
-
-/* Comment Box Styling */
-/* Comment Box Styling */
-.commentbox-area {
-    height: fit-content;
-    width: 50%;
-    overflow-y: auto;
-    overflow-x: auto;
-    margin-top: 30px;
-   
-    margin-left: 13%;
-    margin-right: 20%;
-}
-
-.commentbox-area .comment{
-    margin-top: 10px
-}
-
-#comments{
-    display: none;
-}
-
-.commentbox-area .comment-respond {
-    height: fit-content;
-    overflow-y: auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #f3f8f6;
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 20px;
-}
-
-.commentbox-area .comment-respond h3 {
-    font-size: 20px;
-    margin-bottom: 30px;
-}
-
-.commentbox-area .comment-form p {
-    margin: 10px 0;
-}
-
-.commentbox-area .comment-form label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.commentbox-area .comment-form input[type="text"],
-.commentbox-area .comment-form input[type="email"],
-.commentbox-area .comment-form input[type="url"],
-.commentbox-area .comment-form textarea {
-    width: 90%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.commentbox-area .comment-form input[type="checkbox"] {
-    margin-right: 5px;
-}
-
-.commentbox-area .comment-notes {
-    margin-bottom: 15px;
-}
-
-.commentbox-area .comment-form input[type="submit"] {
-    background-color: #0073e5;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.commentbox-area .comment-form input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-.commentbox-area .comment-list {
-    list-style: none;
-    margin: 0;
-    height: 100px;
-    padding: 0;
-}
-
-.commentbox-area .comment {
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.commentbox-area .vcard img {
-    height: 30px;
-    width: 30px;
-}
-
-.commentbox-area .comment-metadata {
-    font-size: 14px;
-    color: #888;
-}
-
-.commentbox-area .comment-content {
-    margin-top: 10px;
-}
-
-.commentbox-area .comment-reply-link {
-    color: #0073e5;
-}
-
-.commentbox-area .comment-reply-link:hover {
-    color: #0056b3;
-}
-
